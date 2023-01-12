@@ -6,9 +6,9 @@ from PyQt5.QtWidgets import *
 class QPushButtonIcon(QPushButton):
     def __init__(self, parent = None):
         super().__init__(parent)
-        self.setFixedHeight(200)
-        self.setFixedWidth(200)
-        self.setIconSize(QSize(192, 192))
+        self.setFixedHeight(700)
+        self.setFixedWidth(700)
+        self.setIconSize(QSize(692, 692))
 
 class Main(QDialog):
     QPushButtonCount = 0
@@ -23,7 +23,7 @@ class Main(QDialog):
         self.selection_list = []
 
         pixmap = QPixmap('./파충류_양서류/이름X/카멜레온.png')
-        pixmap = pixmap.scaled(200, 200, Qt.IgnoreAspectRatio)
+        pixmap = pixmap.scaled(700, 700, Qt.IgnoreAspectRatio)
         self.icon = QIcon()
         self.icon.addPixmap(pixmap)
 
@@ -65,13 +65,13 @@ class Main(QDialog):
         './파충류_양서류/이름X/바다 거북.png', './파충류_양서류/이름O/바다 거북.png',
         './파충류_양서류/이름X/알다브라육지거북.png', './파충류_양서류/이름O/알다브라육지거북.png',
         './파충류_양서류/이름X/아나콘다.png', './파충류_양서류/이름O/아나콘다.png',
-        './파충류_양서류/이름X/아홀로틀.png', './파충류_양서류/이름O/아흘로틀.png',
+        './파충류_양서류/이름X/아흘로틀.png', './파충류_양서류/이름O/아흘로틀.png',
         './파충류_양서류/이름X/가리알.png', './파충류_양서류/이름O/가리알.png',
         './파충류_양서류/이름X/바다악어.png', './파충류_양서류/이름O/바다악어.png',
         './파충류_양서류/이름X/곡경아목.png', './파충류_양서류/이름O/곡경아목.png',]
 
         pixmap = QPixmap(self.chageIcons[self.QPushButtonCount])
-        pixmap = pixmap.scaled(200, 200, Qt.IgnoreAspectRatio)
+        pixmap = pixmap.scaled(700, 700, Qt.IgnoreAspectRatio)
 
         icon = QIcon()
         icon.addPixmap(pixmap)
