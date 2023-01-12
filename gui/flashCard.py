@@ -11,6 +11,8 @@ class QPushButtonIcon(QPushButton):
         self.setIconSize(QSize(192, 192))
 
 class Main(QDialog):
+    QPushButtonCount = 0
+
     def __init__(self):
         super().__init__()
         self.set_default()
@@ -20,16 +22,10 @@ class Main(QDialog):
     def set_default(self):
         self.selection_list = []
 
-        self.figures = ['./파충류_양서류/이름X/카멜레온.png']
-
-        self.icons = {}
-
-        for index, filename in enumerate(self.figures):
-            pixmap = QPixmap(filename)
-            pixmap = pixmap.scaled(200,200,Qt.IgnoreAspectRatio)
-            icon = QIcon()
-            icon.addPixmap(pixmap)
-            self.icons[index] = icon
+        pixmap = QPixmap('./파충류_양서류/이름X/카멜레온.png')
+        pixmap = pixmap.scaled(200, 200, Qt.IgnoreAspectRatio)
+        self.icon = QIcon()
+        self.icon.addPixmap(pixmap)
 
     def set_style(self):
         with open("style", 'r') as f:
@@ -38,16 +34,12 @@ class Main(QDialog):
     def init_ui(self):
         main_layout = QVBoxLayout()
 
-        self.qbuttons = {}
-        for index, icon in self.icons.items():
-            button = QPushButtonIcon()
-            button.setIcon(icon)
-            button.clicked.connect(lambda state, button = button, idx = index :
-                                   self.qbutton_clicked(state, idx, button))
-            main_layout.addWidget(button)
-            self.qbuttons[index] = button
+        button = QPushButtonIcon()
+        button.setIcon(self.icon)
 
-        main_layout.addLayout(main_layout)
+        button.clicked.connect(lambda state, button = button:
+                               self.qbutton_clicked(button))
+        main_layout.addWidget(button)
 
         self.setLayout(main_layout)
         self.setFixedSize(main_layout.sizeHint())
@@ -55,11 +47,30 @@ class Main(QDialog):
         self.show()
 
         # 이미지 버튼을 눌렀을 경우 이벤트
-    def qbutton_clicked(self, state, idx, button):
-        self.selection_list.append(idx)
-        self.changeFigures = ['./파충류_양서류/이름O/카멜레온.png']
+    def qbutton_clicked(self, button):
+        self.QPushButtonCount = self.QPushButtonCount + 1
+        print(self.QPushButtonCount)
 
-        pixmap = QPixmap('./파충류_양서류/이름O/카멜레온.png')
+        self.figures = ['./파충류_양서류/이름X/카멜레온.png', './파충류_양서류/이름X/이구아나.png']
+        self.changeFigures = ['./파충류_양서류/이름O/카멜레온.png', './파충류_양서류/이름O/이구아나.png']
+
+        self.chageIcons = [
+            './파충류_양서류/이름X/카멜레온.png', './파충류_양서류/이름O/카멜레온.png',
+        './파충류_양서류/이름X/이구아나.png', './파충류_양서류/이름O/이구아나.png',
+        './파충류_양서류/이름X/코모도왕도마뱀.png', './파충류_양서류/이름O/코모도왕도마뱀.png',
+        './파충류_양서류/이름X/영원.png', './파충류_양서류/이름O/영원.png',
+        './파충류_양서류/이름X/도롱뇽.png', './파충류_양서류/이름O/도롱뇽.png',
+        './파충류_양서류/이름X/집도마뱀붙이.png', './파충류_양서류/이름O/집도마뱀붙이.png',
+        './파충류_양서류/이름X/청개구리.png', './파충류_양서류/이름O/청개구리.png',
+        './파충류_양서류/이름X/바다 거북.png', './파충류_양서류/이름O/바다 거북.png',
+        './파충류_양서류/이름X/알다브라육지거북.png', './파충류_양서류/이름O/알다브라육지거북.png',
+        './파충류_양서류/이름X/아나콘다.png', './파충류_양서류/이름O/아나콘다.png',
+        './파충류_양서류/이름X/아홀로틀.png', './파충류_양서류/이름O/아흘로틀.png',
+        './파충류_양서류/이름X/가리알.png', './파충류_양서류/이름O/가리알.png',
+        './파충류_양서류/이름X/바다악어.png', './파충류_양서류/이름O/바다악어.png',
+        './파충류_양서류/이름X/곡경아목.png', './파충류_양서류/이름O/곡경아목.png',]
+
+        pixmap = QPixmap(self.chageIcons[self.QPushButtonCount])
         pixmap = pixmap.scaled(200, 200, Qt.IgnoreAspectRatio)
 
         icon = QIcon()
