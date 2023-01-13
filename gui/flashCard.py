@@ -70,7 +70,6 @@ class Main(QDialog):
         pixmap = pixmap.scaled(700, 700, Qt.IgnoreAspectRatio)
         icon = QIcon()
         icon.addPixmap(pixmap)
-
         button.setIcon(icon)
 
 if __name__ == '__main__':
