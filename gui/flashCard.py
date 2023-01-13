@@ -20,8 +20,6 @@ class Main(QDialog):
         self.init_ui()
 
     def set_default(self):
-        self.selection_list = []
-
         pixmap = QPixmap('./파충류_양서류/이름X/카멜레온.png')
         pixmap = pixmap.scaled(700, 700, Qt.IgnoreAspectRatio)
         self.icon = QIcon()
@@ -51,9 +49,6 @@ class Main(QDialog):
         self.QPushButtonCount = self.QPushButtonCount + 1
         print(self.QPushButtonCount)
 
-        self.figures = ['./파충류_양서류/이름X/카멜레온.png', './파충류_양서류/이름X/이구아나.png']
-        self.changeFigures = ['./파충류_양서류/이름O/카멜레온.png', './파충류_양서류/이름O/이구아나.png']
-
         self.chageIcons = [
             './파충류_양서류/이름X/카멜레온.png', './파충류_양서류/이름O/카멜레온.png',
         './파충류_양서류/이름X/이구아나.png', './파충류_양서류/이름O/이구아나.png',
@@ -68,11 +63,11 @@ class Main(QDialog):
         './파충류_양서류/이름X/아흘로틀.png', './파충류_양서류/이름O/아흘로틀.png',
         './파충류_양서류/이름X/가리알.png', './파충류_양서류/이름O/가리알.png',
         './파충류_양서류/이름X/바다악어.png', './파충류_양서류/이름O/바다악어.png',
-        './파충류_양서류/이름X/곡경아목.png', './파충류_양서류/이름O/곡경아목.png',]
+        './파충류_양서류/이름X/곡경아목.png', './파충류_양서류/이름O/곡경아목.png',
+        ]
 
         pixmap = QPixmap(self.chageIcons[self.QPushButtonCount])
         pixmap = pixmap.scaled(700, 700, Qt.IgnoreAspectRatio)
-
         icon = QIcon()
         icon.addPixmap(pixmap)
 
